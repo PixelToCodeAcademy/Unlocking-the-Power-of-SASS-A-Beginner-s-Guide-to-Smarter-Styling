@@ -1,0 +1,61 @@
+// 05_advanced-features.scss
+
+// Introduction to Advanced Features
+// SASS offers advanced programming features like functions, conditionals, and loops. 
+// These features enable you to write more dynamic and flexible stylesheets.
+
+// Functions
+// Functions in SASS allow you to define reusable operations. They can take arguments and return a value.
+
+@function calculate-grid-width($columns: 12) {
+    @return 100% / $columns;
+  }
+  
+  .container {
+    width: calculate-grid-width(4); // Calls the function with 4 columns
+  }
+  
+  // Conditionals
+  // SASS supports conditional statements using @if, @else if, and @else.
+  // These can be used to apply styles based on conditions.
+  
+  @mixin theme-color($theme) {
+    @if $theme == 'dark' {
+      color: white;
+      background-color: black;
+    } @else if $theme == 'light' {
+      color: black;
+      background-color: white;
+    } @else {
+      color: gray;
+      background-color: lightgray;
+    }
+  }
+  
+  .button {
+    @include theme-color('dark'); // Applies the dark theme styles
+  }
+  
+  // Loops
+  // Loops in SASS allow you to generate styles in a repetitive pattern, reducing the need for manual coding.
+  
+  @for $i from 1 through 3 {
+    .text-#{$i} {
+      font-size: 10px * $i; // Increases font size for each class
+    }
+  }
+  
+  // Each loops for Maps
+  $colors: (color1: blue, color2: red, color3: green);
+  
+  @each $key, $color in $colors {
+    .#{$key} {
+      color: $color;
+    }
+  }
+  
+  // Practice
+  // Create a function that calculates the margin based on a base size.
+  // Use a conditional to apply different background colors based on a "mode" variable.
+  // Generate a series of padding utility classes using a loop.
+  

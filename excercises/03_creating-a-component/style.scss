@@ -1,0 +1,40 @@
+// Define base styles and variables
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$padding: 0.75rem 1.25rem;
+$font-stack: 'Helvetica Neue', sans-serif;
+$border-radius: 0.25rem;
+
+// Mixin for common button styles
+@mixin button-styles($bgColor, $textColor: #fff) {
+  padding: $padding;
+  font-family: $font-stack;
+  border: none;
+  border-radius: $border-radius;
+  color: $textColor;
+  background-color: $bgColor;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: darken($bgColor, 15%);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba($bgColor, 0.5);
+  }
+}
+
+// Button variations
+.btn {
+  @include button-styles($secondary-color);
+  
+  &.btn-primary {
+    @include button-styles($primary-color);
+  }
+
+  &.btn-secondary {
+    @include button-styles($secondary-color);
+  }
+}

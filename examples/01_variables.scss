@@ -1,0 +1,30 @@
+// 01_variables.scss
+
+// Introduction to Variables
+// Variables in SASS are a way to store information that you want to reuse throughout your stylesheet. 
+// They can store strings, numbers, colors, objects, and more. 
+// To declare a variable, you use the $ symbol followed by the variable name.
+
+// Example: Declaring Variables
+$primary-color: #3498db; // A nice shade of blue
+$secondary-color: #2ecc71; // A vibrant green
+$font-stack: Helvetica, Arial, sans-serif; // A common font stack
+
+// Using Variables
+// Once declared, you can use these variables throughout your stylesheet.
+body {
+  font-family: $font-stack;
+  color: $primary-color;
+}
+
+h2 {
+  color: $secondary-color;
+}
+
+// Benefits of Using Variables
+// - Easier to maintain: Change a variable once, and it updates everywhere it's used.
+// - Improves readability: Variables can be named meaningfully, making your CSS easier to understand.
+// - Promotes consistency: Helps keep your styling consistent across your website or application.
+
+// Practice
+// Try creating your own variables for font sizes and margins. Then, apply them to different elements in your stylesheet.

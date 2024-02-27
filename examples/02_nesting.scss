@@ -1,0 +1,48 @@
+// 02_nesting.scss
+
+// Introduction to Nesting
+// Nesting in SASS allows you to write CSS selectors within other selectors. 
+// This mirrors the hierarchical structure of HTML and makes the CSS more readable and maintainable.
+
+// Basic Example of Nesting
+nav {
+    background-color: #333;
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        display: inline-block;
+        margin-right: 20px;
+        a {
+          text-decoration: none;
+          color: white;
+          &:hover { // Using the & symbol to reference the parent selector
+            color: #ccc;
+          }
+        }
+      }
+    }
+  }
+  
+  // Nesting Properties
+  // SASS also allows you to nest CSS properties that use the same namespace.
+  .button {
+    font: {
+      family: Arial, sans-serif;
+      size: 16px;
+      weight: bold;
+    }
+    margin: {
+      top: 10px;
+      bottom: 10px;
+    }
+  }
+  
+  // Caution with Deep Nesting
+  // While nesting is a powerful feature, it's important to use it wisely. 
+  // Deeply nested rules can make CSS harder to read and lead to overly specific selectors. 
+  // As a rule of thumb, try not to nest more than 3 levels deep.
+  
+  // Practice
+  // Create a simple HTML structure and use SASS nesting to style it. 
+  // Pay attention to how nesting can simplify your CSS and make it more structured.  

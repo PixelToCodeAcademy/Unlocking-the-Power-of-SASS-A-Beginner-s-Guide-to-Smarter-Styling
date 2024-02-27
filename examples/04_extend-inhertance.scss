@@ -1,0 +1,57 @@
+// 04_extend-inheritance.scss
+
+// Introduction to Extend/Inheritance
+// The @extend directive in SASS allows you to share a set of CSS properties from one selector to another.
+// It helps in reducing the repetition of CSS rules and keeps your stylesheet efficient and easier to maintain.
+
+// Basic Usage of @extend
+.message {
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #333;
+  }
+  
+  .success-message {
+    @extend .message;
+    border-color: green;
+  }
+  
+  .error-message {
+    @extend .message;
+    border-color: red;
+  }
+  
+  // This approach allows `.success-message` and `.error-message` to inherit styles from `.message`,
+  // while also allowing for custom styles like `border-color`.
+  
+  // Placeholder Selectors
+  // SASS introduces placeholder selectors (denoted with a %), which are similar to classes but don't compile to CSS unless extended.
+  %button-shared {
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .primary-button {
+    @extend %button-shared;
+    background-color: blue;
+    color: white;
+  }
+  
+  .secondary-button {
+    @extend %button-shared;
+    background-color: gray;
+    color: white;
+  }
+  
+  // Placeholder selectors are useful for defining a base set of styles that can be extended without generating additional, unused CSS.
+  
+  // Best Practices
+  // While @extend is powerful, use it judiciously to avoid creating overly complex and hard-to-understand CSS relationships.
+  // It's generally best used for small, simple groups of styles that are very closely related.
+  
+  // Practice
+  // Create your own set of styles that utilize @extend, experimenting with both class selectors and placeholder selectors.
+  // Consider a scenario like button variants or message types where @extend can help reduce code duplication.  

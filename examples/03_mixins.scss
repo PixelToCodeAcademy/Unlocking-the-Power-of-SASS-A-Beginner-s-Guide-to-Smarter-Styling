@@ -1,0 +1,50 @@
+// 03_mixins.scss
+
+// Introduction to Mixins
+// Mixins in SASS are defined blocks of code that can be reused throughout the stylesheet. 
+// They can take parameters, making them a flexible tool for generating complex CSS rules.
+
+// Defining a Mixin
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+            border-radius: $radius;
+  }
+  
+  // Using a Mixin
+  .button {
+    @include border-radius(5px);
+  }
+  
+  // Mixins with Multiple Parameters
+  @mixin box-shadow($x, $y, $blur, $color) {
+    -webkit-box-shadow: $x $y $blur $color;
+            box-shadow: $x $y $blur $color;
+  }
+  
+  .panel {
+    @include box-shadow(0px, 0px, 10px, rgba(0,0,0,0.5));
+  }
+  
+  // Mixins for Responsive Design
+  // You can also use mixins to handle repetitive media queries.
+  @mixin respond-to($media) {
+    @if $media == 'phone' {
+      @media (max-width: 600px) { @content; }
+    } @else if $media == 'tablet' {
+      @media (max-width: 900px) { @content; }
+    } @else if $media == 'desktop' {
+      @media (min-width: 901px) { @content; }
+    }
+  }
+  
+  // Example usage
+  .container {
+    @include respond-to('tablet') {
+      padding: 20px;
+    }
+  }
+  
+  // Practice
+  // Try creating your own mixin for a common styling pattern you use. 
+  // Experiment with parameters to see how they can make your mixin more flexible.  

@@ -1,0 +1,42 @@
+// Define variables
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$font-stack: 'Helvetica Neue', sans-serif;
+
+// Define mixins
+@mixin button-styles($bgColor: $primary-color) {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: $bgColor;
+  color: #fff;
+  font-family: $font-stack;
+  text-align: center;
+  cursor: pointer;
+  &:hover {
+    background-color: darken($bgColor, 10%);
+  }
+}
+
+// Apply styles using variables and mixins
+body {
+  font-family: $font-stack;
+  color: $secondary-color;
+  background-color: #f8f9fa;
+}
+
+h1 {
+  color: $primary-color;
+}
+
+.btn {
+  @include button-styles;
+}
+
+.btn-primary {
+  @include button-styles($primary-color);
+}
+
+.btn-secondary {
+  @include button-styles($secondary-color);
+}
